@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f3f0f0",
+                        "outline-variant": "#d3c3c0",
+                        "on-primary": "#ffffff",
+                        "surface": "#fbf9f8",
+                        "tertiary-container": "#2c2d29",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#181915",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5e604d",
+                        "surface-container": "#f0eded",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae8e7",
+                        "secondary-fixed-dim": "#c8c8b0",
+                        "background": "#fbf9f8",
+                        "on-secondary-fixed-variant": "#474836",
+                        "primary-container": "#3e2723",
+                        "primary": "#271310",
+                        "secondary-container": "#e1e1c9",
+                        "on-primary-fixed": "#2b1613",
+                        "on-secondary-fixed": "#1b1d0e",
+                        "tertiary-fixed": "#e4e2dd",
+                        "surface-tint": "#745853",
+                        "on-background": "#1b1c1c",
+                        "outline": "#827472",
+                        "on-tertiary-fixed": "#1b1c19",
+                        "on-surface-variant": "#504442",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#e3beb8",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-container": "#ae8d87",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#636451",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed": "#e4e4cc",
+                        "primary-fixed": "#ffdad4",
+                        "on-tertiary-container": "#95948f",
+                        "tertiary-fixed-dim": "#c8c6c1",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "on-surface": "#1b1c1c",
+                        "on-primary-fixed-variant": "#5b403c",
+                        "surface-bright": "#fbf9f8",
+                        "inverse-surface": "#303030",
+                        "inverse-primary": "#e3beb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin": "64px",
+                        "gutter": "32px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Noto Serif TC", "Noto Serif"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Noto Serif TC", "Noto Serif"],
+                        "headline-md": ["Noto Serif TC", "Noto Serif"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .dark {
+            background-color: #1b1c1c;
+            color: #fbf9f8;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .text-shadow-subtle {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Fallback for Chinese serif */
+        body {
+            font-family: 'Plus Jakarta Sans', "Noto Serif TC", serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-on-background text-surface selection:bg-primary-container selection:text-on-primary-container font-serif">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 bg-stone-950/80 backdrop-blur-md border-b border-stone-800/40">
+        <nav class="flex justify-between items-center w-full px-8 py-5 max-w-7xl mx-auto">
+            <div class="text-xl font-serif font-semibold tracking-tighter text-stone-50">
+                The Third Space
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-stone-400 font-medium font-label-md text-label-md hover:text-stone-50 transition-all duration-300 ease-in-out"
+                    href="1.html">品牌故事</a>
+                <a class="text-stone-400 font-medium font-label-md text-label-md hover:text-stone-50 transition-all duration-300 ease-in-out"
+                    href="4.html">特色菜單</a>
+                <a class="text-stone-50 border-b border-stone-50 pb-1 font-medium font-label-md text-label-md"
+                    href="2.html">門市據點</a>
+                <a class="text-stone-400 font-medium font-label-md text-label-md hover:text-stone-50 transition-all duration-300 ease-in-out"
+                    href="3.html">線上訂購</a>
+            </div>
+            <button
+                class="scale-95 active:opacity-80 transition-transform bg-stone-50 text-stone-950 px-6 py-2 font-label-md text-label-md rounded-full font-bold">
+                立即預約
+            </button>
+        </nav>
+    </header>
+    <main class="pt-32 pb-section-gap">
+        <!-- Hero Section -->
+        <section class="px-8 max-w-7xl mx-auto mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+                <div class="lg:col-span-7">
+                    <span
+                        class="font-label-md text-label-md text-on-tertiary-container tracking-widest uppercase mb-4 block">探索我們的據點</span>
+                    <h1 class="font-display-lg text-display-lg text-surface-bright leading-tight mb-8">為<span
+                            class="italic font-normal text-on-primary-container">現代漫遊者</span>精心打造的感官空間。</h1>
+                    <p class="font-body-lg text-body-lg text-outline-variant max-w-xl">
+                        探索我們一系列充滿工藝精神的避風港，旨在頌揚咖啡的儀式感與對話的藝術。
+                    </p>
+                </div>
+                <div class="lg:col-span-5 hidden lg:block">
+                    <div class="h-64 w-full bg-stone-900 overflow-hidden relative grayscale opacity-60">
+                        <img class="w-full h-full object-cover"
+                            data-alt="Moody dark interior of a minimalist cafe with soft spotlighting on ceramic cups and dark wooden tables"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnkMIudQ6W_QtBszpPy0lQeLPCh2uyeI4yXHaiu49iJNJEJFHPkmXqwgAQ_SprGgoZRajdELV0EwoR8tIumVwtL9RTzKF7Aw5qwaPm5hG0icGsfkd8pln3gReq2cAmGs1kQ2gEjxP-6sh6MSGY2COFHg89q6ESdUz8giUy9GFrOmiH7bLRJwravNUpj2XNxggDKiy0UOKgC1QELz_SSEKQLRXETeFolO1omSODBcOohz4klEQyyEiDMSQ_TaS2SgXKK-6wp4egFnc" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Locations Layout -->
+        <section class="px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Locations List -->
+                <div class="lg:col-span-5 space-y-12">
+                    <!-- Flagship Store -->
+                    <div
+                        class="group border-l border-stone-800 pl-8 py-2 hover:border-on-primary-container transition-colors duration-500">
+                        <h2 class="font-headline-md text-headline-md text-surface-bright mb-4">旗艦店</h2>
+                        <div class="space-y-4 font-body-md text-body-md text-outline-variant">
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="material-symbols-outlined text-on-primary-container mt-1">location_on</span>
+                                <span>紐約州紐約市 10011<br />雀兒喜，工匠巷 128 號</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-on-primary-container mt-1">schedule</span>
+                                <span>週一 — 週五: 07:00 - 20:00<br />週六 — 週日: 08:00 - 21:00</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button
+                                class="inline-flex items-center gap-2 px-0 py-2 border-b border-stone-800 text-stone-50 font-label-md text-label-md group-hover:border-stone-50 transition-all duration-300">
+                                聯繫門市 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Roastery Lab -->
+                    <div
+                        class="group border-l border-stone-800 pl-8 py-2 hover:border-on-primary-container transition-colors duration-500">
+                        <h2 class="font-headline-md text-headline-md text-surface-bright mb-4">烘焙實驗室</h2>
+                        <div class="space-y-4 font-body-md text-body-md text-outline-variant">
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="material-symbols-outlined text-on-primary-container mt-1">location_on</span>
+                                <span>紐約州布魯克林 11201<br />DUMBO，工業大道 45 號</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-on-primary-container mt-1">schedule</span>
+                                <span>週二 — 週日: 09:00 - 18:00<br />週一公休進行烘焙作業</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button
+                                class="inline-flex items-center gap-2 px-0 py-2 border-b border-stone-800 text-stone-50 font-label-md text-label-md group-hover:border-stone-50 transition-all duration-300">
+                                預約導覽 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- The Annex -->
+                    <div
+                        class="group border-l border-stone-800 pl-8 py-2 hover:border-on-primary-container transition-colors duration-500">
+                        <h2 class="font-headline-md text-headline-md text-surface-bright mb-4">別館</h2>
+                        <div class="space-y-4 font-body-md text-body-md text-outline-variant">
+                            <div class="flex items-start gap-3">
+                                <span
+                                    class="material-symbols-outlined text-on-primary-container mt-1">location_on</span>
+                                <span>紐約州紐約市 10014<br />高線公園，第 10 大道入口</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-on-primary-container mt-1">schedule</span>
+                                <span>每日營業: 08:00 - 19:00</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button
+                                class="inline-flex items-center gap-2 px-0 py-2 border-b border-stone-800 text-stone-50 font-label-md text-label-md group-hover:border-stone-50 transition-all duration-300">
+                                查看目前空位 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interactive Map Container -->
+                <div class="lg:col-span-7 h-[700px] sticky top-32">
+                    <div class="relative w-full h-full bg-stone-900 rounded-lg overflow-hidden border border-stone-800">
+                        <div class="absolute inset-0 grayscale contrast-125 opacity-70 mix-blend-luminosity">
+                            <img class="w-full h-full object-cover"
+                                data-alt="Monochrome aerial map view of Manhattan streets with high contrast and dark shadows"
+                                data-location="New York City"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw2k3dDOe3pFUwxPh6INeIlar8Ysxf00JQT1RtHMANUFh9aUWh_ykKqmYtFVwW81LwFdhrAhW4zQc7Srx4CTwU9IYdPKLSjcFrK1nFEGwW5paDps64DnHQlyYOdMZCy5XgO3J_SzkSbY5G8MDSmZEEU3Gp0AmGukns7VoosEyYbMy6dCnAygJIqGBEenaRk42uSOswEj7P2fRHos_hWUxm0qZkkyZWuHOVKKWOjc_glYYhBAX5TvbpmtJ31qRKTJDMJ2p6D6JHBD4" />
+                        </div>
+                        <!-- Custom Map Overlay UI -->
+                        <div class="absolute inset-0 bg-stone-950/20 pointer-events-none"></div>
+                        <!-- Map Pins -->
+                        <div class="absolute top-[40%] left-[30%] pointer-events-auto">
+                            <div class="relative flex items-center justify-center">
+                                <div class="w-4 h-4 bg-on-primary-container rounded-full animate-ping absolute"></div>
+                                <div
+                                    class="w-4 h-4 bg-on-primary-container rounded-full relative shadow-[0_0_20px_rgba(174,141,135,0.8)]">
+                                </div>
+                                <div
+                                    class="absolute -top-12 left-1/2 -translate-x-1/2 bg-stone-900 text-stone-50 px-3 py-1 rounded text-xs font-label-md whitespace-nowrap border border-stone-700">
+                                    旗艦店</div>
+                            </div>
+                        </div>
+                        <div class="absolute top-[65%] left-[55%] pointer-events-auto">
+                            <div class="relative flex items-center justify-center">
+                                <div class="w-3 h-3 bg-stone-400 rounded-full relative"></div>
+                                <div
+                                    class="absolute -top-10 left-1/2 -translate-x-1/2 bg-stone-900 text-stone-50 px-3 py-1 rounded text-xs font-label-md whitespace-nowrap border border-stone-700">
+                                    烘焙實驗室</div>
+                            </div>
+                        </div>
+                        <div class="absolute top-[55%] left-[35%] pointer-events-auto">
+                            <div class="relative flex items-center justify-center">
+                                <div class="w-3 h-3 bg-stone-400 rounded-full relative"></div>
+                                <div
+                                    class="absolute -top-10 left-1/2 -translate-x-1/2 bg-stone-900 text-stone-50 px-3 py-1 rounded text-xs font-label-md whitespace-nowrap border border-stone-700">
+                                    別館</div>
+                            </div>
+                        </div>
+                        <!-- Map Controls -->
+                        <div class="absolute bottom-6 right-6 flex flex-col gap-2">
+                            <button
+                                class="w-10 h-10 bg-stone-900/90 backdrop-blur-sm border border-stone-700 text-stone-50 flex items-center justify-center rounded hover:bg-stone-800 transition-colors">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </button>
+                            <button
+                                class="w-10 h-10 bg-stone-900/90 backdrop-blur-sm border border-stone-700 text-stone-50 flex items-center justify-center rounded hover:bg-stone-800 transition-colors">
+                                <span class="material-symbols-outlined text-sm">remove</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter / Journal Teaser -->
+        <section class="px-8 max-w-7xl mx-auto mt-section-gap">
+            <div class="bg-stone-900/50 p-12 md:p-24 text-center border border-stone-800">
+                <h3 class="font-headline-lg text-headline-lg text-surface-bright mb-6 italic">感官日誌，靜候您的訂閱。</h3>
+                <p class="font-body-md text-body-md text-outline-variant max-w-md mx-auto mb-10">
+                    訂閱以獲取關於季節性烘焙豆、藝廊活動及新據點開幕的最新消息。
+                </p>
+                <form class="max-w-md mx-auto flex gap-4">
+                    <input
+                        class="flex-1 bg-transparent border-b border-stone-700 text-stone-50 px-2 py-3 focus:outline-none focus:border-on-primary-container font-label-md text-label-md placeholder:text-stone-600 transition-colors"
+                        placeholder="電子郵件地址" type="email" />
+                    <button
+                        class="font-label-md text-label-md text-stone-50 hover:text-on-primary-container transition-colors uppercase tracking-widest"
+                        type="submit">訂閱</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-stone-900 border-t border-stone-800">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 px-12 py-16 max-w-7xl mx-auto">
+            <div class="text-lg font-serif italic text-stone-100">
+                The Third Space
+            </div>
+            <div class="flex flex-wrap justify-center gap-10">
+                <a class="text-stone-400 font-serif text-sm tracking-wide hover:text-stone-100 transition-colors"
+                    href="#">聯繫我們</a>
+                <a class="text-stone-400 font-serif text-sm tracking-wide hover:text-stone-100 transition-colors"
+                    href="#">隱私權政策</a>
+                <a class="text-stone-400 font-serif text-sm tracking-wide hover:text-stone-100 transition-colors"
+                    href="#">日誌</a>
+                <a class="text-stone-400 font-serif text-sm tracking-wide hover:text-stone-100 transition-colors"
+                    href="#">招賢納士</a>
+            </div>
+            <div class="text-stone-500 font-serif text-sm tracking-wide">
+                © 2024 The Third Space. 為感官體驗而生。
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f3f0f0",
+                        "outline-variant": "#d3c3c0",
+                        "on-primary": "#ffffff",
+                        "surface": "#fbf9f8",
+                        "tertiary-container": "#2c2d29",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#181915",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5e604d",
+                        "surface-container": "#f0eded",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae8e7",
+                        "secondary-fixed-dim": "#c8c8b0",
+                        "background": "#fbf9f8",
+                        "on-secondary-fixed-variant": "#474836",
+                        "primary-container": "#3e2723",
+                        "primary": "#271310",
+                        "secondary-container": "#e1e1c9",
+                        "on-primary-fixed": "#2b1613",
+                        "on-secondary-fixed": "#1b1d0e",
+                        "tertiary-fixed": "#e4e2dd",
+                        "surface-tint": "#745853",
+                        "on-background": "#1b1c1c",
+                        "outline": "#827472",
+                        "on-tertiary-fixed": "#1b1c19",
+                        "on-surface-variant": "#504442",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#e3beb8",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-container": "#ae8d87",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#636451",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed": "#e4e4cc",
+                        "primary-fixed": "#ffdad4",
+                        "on-tertiary-container": "#95948f",
+                        "tertiary-fixed-dim": "#c8c6c1",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "on-surface": "#1b1c1c",
+                        "on-primary-fixed-variant": "#5b403c",
+                        "surface-bright": "#fbf9f8",
+                        "inverse-surface": "#303030",
+                        "inverse-primary": "#e3beb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin": "64px",
+                        "gutter": "32px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Noto Serif"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-stone-950 text-stone-50 font-serif antialiased">
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 w-full z-50 bg-stone-950/80 backdrop-blur-md border-b border-stone-800/40">
+        <nav class="flex justify-between items-center w-full px-8 py-5 max-w-7xl mx-auto">
+            <div class="text-xl font-serif font-semibold tracking-tighter text-stone-50">The Third Space</div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-stone-500 hover:text-stone-50 transition-all duration-300 font-medium font-label-md"
+                    href="1.html">品牌故事</a>
+                <a class="text-stone-500 hover:text-stone-50 transition-all duration-300 font-medium font-label-md"
+                    href="4.html">特色菜單</a>
+                <a class="text-stone-500 hover:text-stone-50 transition-all duration-300 font-medium font-label-md"
+                    href="2.html">門市據點</a>
+                <a class="text-stone-50 border-b border-stone-50 pb-1 font-medium font-label-md" href="3.html">線上訂購</a>
+            </div>
+            <button
+                class="bg-stone-50 text-stone-950 px-6 py-2 font-label-md scale-95 active:opacity-80 transition-transform">
+                預約訂位
+            </button>
+        </nav>
+    </header>
+    <main class="pt-32 pb-24 max-w-7xl mx-auto px-8">
+        <!-- Hero Section -->
+        <section class="mb-16">
+            <h1 class="font-display-lg text-display-lg mb-4">線上訂購</h1>
+            <p class="font-body-lg text-body-lg text-stone-400 max-w-2xl">將 The Third Space
+                的感官體驗帶回家。工匠烘焙咖啡豆、精密器具以及品牌原創週邊。</p>
+        </section>
+        <!-- Category Selection -->
+        <div class="flex flex-wrap gap-4 mb-12">
+            <button
+                class="bg-stone-50 text-stone-950 px-8 py-2 rounded-full font-label-md transition-colors">所有系列</button>
+            <button
+                class="border border-stone-800 text-stone-400 hover:text-stone-50 px-8 py-2 rounded-full font-label-md transition-colors">精選咖啡豆</button>
+            <button
+                class="border border-stone-800 text-stone-400 hover:text-stone-50 px-8 py-2 rounded-full font-label-md transition-colors">沖煮器具</button>
+            <button
+                class="border border-stone-800 text-stone-400 hover:text-stone-50 px-8 py-2 rounded-full font-label-md transition-colors">品牌週邊</button>
+        </div>
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Product Card 1 -->
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[4/5] overflow-hidden bg-stone-900 mb-6">
+                    <img alt="咖啡豆"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Close-up of artisan roasted coffee beans in a matte black bag on a dark stone surface with moody side lighting"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1K4aUqFMd30cxULUAX-bVTnDGgGAdYuhSBF2QquwqHScXrN6eKDrK4vHxOiBBDXRzkPOssZJNHtC-T_dO4fHfLKcmsauQ3dU-mcYU_k2Xk3aZXYjiyGEKrV4uTtTRQJyGlGUXK1MrH9Mp2_xMRmGU1WsaJ_A9b7IQNjYxhr1PoXmwlV68BGeOj_5-2AC6AvOHZ8GvyJ6ojqQXpyCna1uHlzJYz0O66AJDUKmY6g6jqoCRsn3VsgvH41ERE6DtgqVECD4_wG2c9Wk" />
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-stone-50/10 backdrop-blur-md text-stone-50 px-3 py-1 text-xs font-label-md tracking-widest uppercase">道德採購</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md mb-1">午夜花火配方豆</h3>
+                        <p class="font-body-md text-stone-500 mb-4">帶有茉莉花、黑巧克力與李子的香氣。</p>
+                        <p class="font-label-md text-stone-50">$24.00</p>
+                    </div>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center border border-stone-800 group-hover:bg-stone-50 group-hover:text-stone-950 transition-colors">
+                        <span class="material-symbols-outlined" data-icon="add">add</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[4/5] overflow-hidden bg-stone-900 mb-6">
+                    <img alt="沖煮器具"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Minimalist glass pour-over coffee maker on a dark wooden table with soft smoke from the hot coffee"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWwL9ststlhN6d1c3KxIqa5WjYpjyEIQABqyfGcIjb309UjzepCrfGv0k4HEFwjUUWafPliAJnvFVjlTsm_7JaUxKiOEatLRa_DRXSlN2hd-P1RzP7wjuc5OdoD_q3bDy_Wo0rYdRdtGpPSKMZLUTdnon3ZpExD9J7Qp8hY2rC6tlSAK1XrNL4YZbtDd1OHRRrB8hHKCZNpFwWyx-9nf3agnWuem8jMtb2DS-NDvhFnH9De3UdV5lPxlvIEhTFQEmuk8K1ltCJdJw" />
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-stone-50/10 backdrop-blur-md text-stone-50 px-3 py-1 text-xs font-label-md tracking-widest uppercase">必備良品</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md mb-1">V60 玻璃濾杯</h3>
+                        <p class="font-body-md text-stone-500 mb-4">透明耐熱玻璃，實現完美的手沖體驗。</p>
+                        <p class="font-label-md text-stone-50">$38.00</p>
+                    </div>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center border border-stone-800 group-hover:bg-stone-50 group-hover:text-stone-950 transition-colors">
+                        <span class="material-symbols-outlined" data-icon="add">add</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[4/5] overflow-hidden bg-stone-900 mb-6">
+                    <img alt="陶瓷馬克杯"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Handcrafted matte grey ceramic coffee mug with organic texture on a dark minimalist background"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzkpqnVsCmqgq5Iuoqy3tqwC7XjlszV8NiQc5iAhRSxyjjqeHgeR3CgJTX9t1-6DX7mdTsoYXu-36nTW_o2KcgihjhK-SNhWHQUUv_MSSgIheDrmpT5CiPCbPI9KqKbEYO77zHw1eUuGs31lG-GKGpQfIDAG1GVN9PQi1V_Ia0nZjieb29k14fR9w5cC2fkd_iwcLejf_LlpbEB4QPH8H_qszrqmCg77bUzgRLxDkSmWHD_TWO_SqTzqjO2frbzZcnRsyeC-iiqCs" />
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-stone-50/10 backdrop-blur-md text-stone-50 px-3 py-1 text-xs font-label-md tracking-widest uppercase">匠心之作</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md mb-1">岩紋系列馬克杯</h3>
+                        <p class="font-body-md text-stone-500 mb-4">手工拉坏陶瓷，帶有磨砂觸感。</p>
+                        <p class="font-label-md text-stone-50">$32.00</p>
+                    </div>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center border border-stone-800 group-hover:bg-stone-50 group-hover:text-stone-950 transition-colors">
+                        <span class="material-symbols-outlined" data-icon="add">add</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[4/5] overflow-hidden bg-stone-900 mb-6">
+                    <img alt="手沖壺"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Sleek matte black electric gooseneck kettle standing on a marble base in a dimly lit modern kitchen"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-l54vnN6KzaONofCog6isDqxlWoKSD-tF3-aqHcoG4VxjXAo8f0kkk3iSKSpfjW2rcIRD5ZG1SkYivkdBUDYcl0KWKLry9GyQzlFAycx9dza7cjHcvU_xPTHHRqKkFCHRb1UF6NZD7SUTF_6H5E4cW7MNkb4DUD-4oe28ClexXmoyhPVPQRkZJjmdqu8QQtz307wDt_r_HIVQimHCPa-G7SsZpyqE4ZwQC0HjrZyBSHvD1USIZUEKbGWoVMsEG2rLOMdv9uBTnd4" />
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md mb-1">精準控溫手沖壺</h3>
+                        <p class="font-body-md text-stone-500 mb-4">電子變頻控溫，精準掌握水溫。</p>
+                        <p class="font-label-md text-stone-50">$165.00</p>
+                    </div>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center border border-stone-800 group-hover:bg-stone-50 group-hover:text-stone-950 transition-colors">
+                        <span class="material-symbols-outlined" data-icon="add">add</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[4/5] overflow-hidden bg-stone-900 mb-6">
+                    <img alt="咖啡訂閱"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Multiple bags of specialty coffee lined up on a shelf with elegant minimalist typography packaging"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnkw6c_d9d1YX8E_hxnwp0zH76lYNcteBWBrgqTUaEePapDvChzLVh-YMwQ2r4Y4l0I-8eSkNhd0zQjVNRH3MlBIsMR4qATwzJ_BNAg9Hs1_QyvtwLbrGVVXKwuenut6Fwzty9dzBlYbRaXz2sS0dMcFrAQD8QDmXCGnd3kxhA08RjoIDVMdat5nYNLRWZR2AFuF9l1ZhG-7b5NCz5MTSMJ24PfM2LH5slMMSo5_YDAU-mSV6TqlNkJPxmrlzzWIA35U7xws2EHts" />
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-primary text-stone-50 px-3 py-1 text-xs font-label-md tracking-widest uppercase">最佳價值</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md mb-1">烘豆師精選訂閱</h3>
+                        <p class="font-body-md text-stone-500 mb-4">每月為您遞送最優質的單品咖啡豆。</p>
+                        <p class="font-label-md text-stone-50">每月 $20.00 起</p>
+                    </div>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center border border-stone-800 group-hover:bg-stone-50 group-hover:text-stone-950 transition-colors">
+                        <span class="material-symbols-outlined" data-icon="add">add</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Product Card 6 -->
+            <div class="group cursor-pointer">
+                <div class="relative aspect-[4/5] overflow-hidden bg-stone-900 mb-6">
+                    <img alt="帆布袋"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        data-alt="Heavyweight cream canvas tote bag with a minimalist black cafe logo hanging against a dark grey wall"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnQMdOZ68yRMAfwhIfjsh_nweR8N4QyR_Js9vvsUuHtRIdP7_q-IxjiMZT4luWkaxEHIq_MtV4EydmhkTnYy34_CEPut9hZvwQrw50jCSGLgGuFyVWlda-UsUTmfpoxCMNFOIUG3rAJy8CGXdvlCtfelNxrqLdYDiCebHTM2RHEFJc4Wp21Q4g4Jgxw_d8qxvnVHkBccAXZqRbnAjvsjhMWDS4zMJjJ7p_Amvx1hrd1NBO81Kww0IJ_XKGMycqib3VhPV-1zSSbi8" />
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md mb-1">經典帆布托特包</h3>
+                        <p class="font-body-md text-stone-500 mb-4">耐用 16oz 純棉材質，附有內袋。</p>
+                        <p class="font-label-md text-stone-50">$28.00</p>
+                    </div>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center border border-stone-800 group-hover:bg-stone-50 group-hover:text-stone-950 transition-colors">
+                        <span class="material-symbols-outlined" data-icon="add">add</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Floating Mini Cart -->
+    <div class="fixed bottom-12 right-8 z-50">
+        <button
+            class="w-16 h-16 bg-stone-50 text-stone-950 rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-transform active:scale-95">
+            <span class="material-symbols-outlined text-3xl" data-icon="shopping_bag">shopping_bag</span>
+            <div
+                class="absolute -top-1 -right-1 w-6 h-6 bg-primary text-white text-[10px] flex items-center justify-center rounded-full font-bold border-2 border-stone-950">
+                2
+            </div>
+        </button>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-stone-900 border-t border-stone-800">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 px-12 py-16 max-w-7xl mx-auto">
+            <div class="text-lg font-serif italic text-stone-100">The Third Space.</div>
+            <div class="flex space-x-8">
+                <a class="text-stone-500 hover:text-stone-100 transition-colors font-serif text-sm tracking-wide"
+                    href="#">聯絡我們</a>
+                <a class="text-stone-500 hover:text-stone-100 transition-colors font-serif text-sm tracking-wide"
+                    href="#">隱私權政策</a>
+                <a class="text-stone-500 hover:text-stone-100 transition-colors font-serif text-sm tracking-wide"
+                    href="#">品牌日誌</a>
+                <a class="text-stone-500 hover:text-stone-100 transition-colors font-serif text-sm tracking-wide"
+                    href="#">加入我們</a>
+            </div>
+            <div class="text-stone-500 font-serif text-sm tracking-wide">
+                © 2024 The Third Space. 專為感官體驗而生。
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

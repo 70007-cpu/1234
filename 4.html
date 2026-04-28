@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background-color: #1a1a1a;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="1"/></svg>');
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .animate-fade-up-scroll {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .dotted-leader {
+            border-bottom: 1px dotted #5b403c;
+            flex-grow: 1;
+            margin-bottom: 5px;
+        }
+
+        /* Custom map inversion for dark mode feel */
+        .map-container iframe {
+            filter: grayscale(1) invert(0.9) contrast(1.2);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#2c2d29",
+                        "on-secondary-container": "#dcd9d9",
+                        "on-error-container": "#ffdad6",
+                        "background": "#1a120b",
+                        "on-primary-fixed-variant": "#e3beb8",
+                        "on-primary-fixed": "#ffdad4",
+                        "secondary-container": "#3E2723",
+                        "on-surface": "#f3f0f0",
+                        "on-background": "#f3f0f0",
+                        "secondary": "#c8c8b0",
+                        "on-surface-variant": "#d3c3c0",
+                        "tertiary-fixed": "#2c2d29",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#271d15",
+                        "secondary-fixed": "#474836",
+                        "primary-fixed": "#3e2723",
+                        "on-tertiary": "#181915",
+                        "on-tertiary-container": "#c8c6c1",
+                        "surface-tint": "#e3beb8",
+                        "surface-container": "#271d15",
+                        "outline": "#9c8d8b",
+                        "inverse-primary": "#745853",
+                        "primary-fixed-dim": "#e3beb8",
+                        "on-primary-container": "#f0eded",
+                        "inverse-on-surface": "#1b1c1c",
+                        "inverse-surface": "#f3f0f0",
+                        "outline-variant": "#504442",
+                        "surface-container-low": "#1f1611",
+                        "on-secondary-fixed-variant": "#e4e4cc",
+                        "surface-container-high": "#2f251d",
+                        "primary-container": "#5b403c",
+                        "surface-container-lowest": "#0f0b08",
+                        "error-container": "#93000a",
+                        "surface-dim": "#1a120b",
+                        "on-secondary-fixed": "#e4e4cc",
+                        "surface-variant": "#504442",
+                        "on-secondary": "#1b1d0e",
+                        "tertiary-fixed-dim": "#181915",
+                        "surface": "#1a120b",
+                        "on-error": "#690005",
+                        "on-primary": "#fdf8f7",
+                        "surface-container-highest": "#3a2e25",
+                        "tertiary": "#c8c6c1",
+                        "secondary-fixed-dim": "#5e604d",
+                        "on-tertiary-fixed": "#e4e2dd",
+                        "primary": "#fdf8f7",
+                        "on-tertiary-fixed-variant": "#e4e2dd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "margin": "64px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Noto Serif"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-surface antialiased font-body-md">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-[#1a120b]/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-500">
+        <div class="flex justify-between items-center px-12 py-6 max-w-full mx-auto">
+            <div class="font-serif text-2xl italic font-bold text-on-primary">第三空間 The Third Space</div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-on-surface-variant font-normal hover:text-on-primary transition-colors duration-300 font-serif text-sm tracking-wide"
+                    href="1.html">品牌故事</a>
+                <a class="text-on-primary border-b border-on-primary pb-1 font-semibold font-serif text-sm tracking-wide"
+                    href="4.html">特色菜單</a>
+                <a class="text-on-surface-variant font-normal hover:text-on-primary transition-colors duration-300 font-serif text-sm tracking-wide"
+                    href="2.html">門市據點</a>
+                <a class="text-on-surface-variant font-normal hover:text-on-primary transition-colors duration-300 font-serif text-sm tracking-wide"
+                    href="3.html">線上訂購</a>
+            </div>
+            <button
+                class="bg-gradient-to-br from-[#2a2a2a] to-[#111] border border-[#555] text-[#b8860b] px-6 py-2.5 rounded-lg font-label-md text-label-md uppercase tracking-widest hover:border-[#b8860b] hover:shadow-[0_0_20px_rgba(184,134,11,0.4)] hover:scale-[1.05] transition-all duration-300">
+                立即預約
+            </button>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <div class="container mx-auto px-margin grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+            <div class="z-10 py-12">
+                <h1 class="font-display-lg text-display-lg text-on-primary mb-8 max-w-lg animate-fade-up">第三空間<br />The
+                    Third Space</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-12">
+                    一座精心打造的感官聖殿，讓精品咖啡豆與匠心工藝在此邂逅。在每一滴萃取中體驗卓越，為每個刻意的停留而生。
+                </p>
+                <div class="flex gap-6">
+                    <button
+                        class="bg-gradient-to-br from-[#2a2a2a] to-[#111] border border-[#555] text-[#b8860b] px-8 py-4 rounded-none font-label-md text-label-md uppercase tracking-widest hover:border-[#b8860b] hover:shadow-[0_0_20px_rgba(184,134,11,0.4)] hover:-translate-y-1 transition-all duration-300">
+                        探索菜單
+                    </button>
+                    <button
+                        class="border border-[#555] text-[#b8860b] px-8 py-4 rounded-none font-label-md text-label-md uppercase tracking-widest hover:bg-[#b8860b] hover:text-[#1a1a1a] hover:shadow-[0_0_20px_rgba(184,134,11,0.4)] hover:-translate-y-1 transition-all duration-300">
+                        製作工藝
+                    </button>
+                </div>
+            </div>
+            <div class="relative h-[819px] w-full">
+                <div class="absolute inset-0 bg-primary-container/20 -m-8 z-0"></div>
+                <div role="img" aria-label="現代極簡主義咖啡店室內設計，搭配暖色木調"
+                    class="w-full h-full parallax-bg shadow-2xl relative z-10 grayscale-[30%] brightness-75"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMXEEnm8r9DIfs2LBxsYmxrEGQlHhzUogULQYrZS9jSUtB3cT_PROXEuE1AljHS1UkToDE5fZp1xWFpi8qiCQIqRX4JBOYSmyXlGCrJZT1rGT-zMFHPiuJ9PiBICupHJkSBmTPhb_8f4tI99VbWtIqKcnrU0-vCBwTLKzIUf0FyWBnpTYNzgAz9KGclTQPino5oDAvriordwgMk453wb5WWEv7hQRxVKgLhR16fplRdpyK7o0aymvL35J2sUzHUzfRAfI_EU8nLRk');">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Menu Section -->
+    <section class="py-section-gap bg-surface-container-low">
+        <div class="container mx-auto px-margin">
+            <div class="text-center mb-20">
+                <span
+                    class="font-label-md text-label-md text-on-primary-container uppercase tracking-[0.2em] block mb-4">經典系列</span>
+                <h2 class="font-headline-lg text-headline-lg text-on-primary">主打推薦項目</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                <!-- Menu Item 1 -->
+                <div
+                    class="flex flex-col md:flex-row gap-6 group hover:scale-105 hover:shadow-2xl hover:bg-surface-container-low transition-all duration-500 rounded-2xl p-4 md:p-6 -ml-4 md:-ml-6 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] cursor-pointer border border-transparent hover:border-outline-variant/30">
+                    <div
+                        class="relative w-full md:w-32 h-40 md:h-32 flex-shrink-0 overflow-hidden rounded-xl border border-outline-variant/30">
+                        <img alt="精緻的精品手沖咖啡"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-90"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpjqt6UN3EEhVcW2OyY72kUALmYkzUBQ1DFFvkfK6juhNeMZTAVAFtOSUtsvYUJAhWADg7xZtnUw2JvcUYT45HoLuzVcHJ3KspCLiCH7f3QnJS2NwwQSRWtbCu8zp2HPYOPco74qTFau-u_cKg2GiJ9bns828nGyy6gij1BfRjfRzF9QAaXyV1QP3hIfdCE_PELq1f2oYkvSyArGHiPaJGy81yj6EfpPclWBLdY0rmHSl0QuHjyWMo68gjoCqxRYccPnmBO_qi0f0" />
+                        <div
+                            class="absolute inset-0 bg-[#1a1a1a]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
+                            <span
+                                class="text-[#b8860b] font-label-md text-xs tracking-widest uppercase shadow-sm">探索風味</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-headline-md text-xl text-on-primary">精品手沖系列</h3>
+                            <div class="dotted-leader mx-4 hidden sm:block"></div>
+                            <span class="font-label-md text-on-primary">$180</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant italic">嚴選單一產區豆款，精準控溫緩慢萃取，展現純淨且豐富的熱帶果香韻味。</p>
+                        <div class="mt-3 flex gap-2">
+                            <span
+                                class="bg-primary-container text-on-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter">永續貿易</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Menu Item 2 -->
+                <div class="flex flex-col md:flex-row gap-6 group">
+                    <div
+                        class="relative w-full md:w-32 h-40 md:h-32 flex-shrink-0 overflow-hidden rounded-xl border border-outline-variant/30">
+                        <img alt="絲滑的平白咖啡"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-90"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQeFSMqSDrAucE4gIsFNzpqf-uXVf_jp6lodqTdii_cnDgtKUnVpDbGhjO9BNod7nocyryorNgDHUtTUuxh-vkf7AmNb6g_RrMfHnYSMQXuZawLlRxkHa_nHHPqoyGWPC5VGTezK32az8WfcZrUMq3nRzbsJIs2VmIOGSn6vvt-UtVUj3ongiMaibQwjpWg1L-LmqMkwdrMBpLh5CmfGxtbUIIccuQ3Jied8sc_cmwkIDg7NQkOXu_dQE9sl7mD5pHE7k9J2gmti0" />
+                        <div
+                            class="absolute inset-0 bg-[#1a1a1a]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
+                            <span
+                                class="text-[#b8860b] font-label-md text-xs tracking-widest uppercase shadow-sm">探索風味</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-headline-md text-xl text-on-primary">絲滑馥列白</h3>
+                            <div class="dotted-leader mx-4 hidden sm:block"></div>
+                            <span class="font-label-md text-on-primary">$160</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant italic">雙份濃縮精華搭配極細緻微泡熱牛奶，交織出如絲綢般的滑順質地與濃郁的可可餘韻。
+                        </p>
+                    </div>
+                </div>
+                <!-- Menu Item 3 -->
+                <div class="flex flex-col md:flex-row gap-6 group">
+                    <div
+                        class="relative w-full md:w-32 h-40 md:h-32 flex-shrink-0 overflow-hidden rounded-xl border border-outline-variant/30">
+                        <img alt="冷萃咖啡"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-90"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0C3zH_Hxwus8gGgM1Cb6Gv0uHfEZACjBGfM5DGS1ellKyBwpLkuh7wuvVALKGb6vqay5n6PZKzSuoLY9cLK6zcxhl0eNdk9r7E_GA9D8xkZN10Lj5E2QWwPT8V6pcBIDqL7x5Cgx0f_H3rQ6_-5t200yPF640QAWH89hgjr9C215303j6s0W1Y4OPhpsfH-nUZ-cTC4vWzrLv6sH_2CFzoDQ7gRjFB4lYiLlc6UIk-haOPVs8-OJ7jh-tC_t0Uu2-mDnz8UxUUZg" />
+                        <div
+                            class="absolute inset-0 bg-[#1a1a1a]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
+                            <span
+                                class="text-[#b8860b] font-label-md text-xs tracking-widest uppercase shadow-sm">探索風味</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-headline-md text-xl text-on-primary">低溫浸漬冷萃</h3>
+                            <div class="dotted-leader mx-4 hidden sm:block"></div>
+                            <span class="font-label-md text-on-primary">$170</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant italic">經 24 小時長時間低溫浸泡，過濾出輕盈且帶有茶感的乾淨體質，展現清爽的花香調性。
+                        </p>
+                        <div class="mt-3 flex gap-2">
+                            <span
+                                class="bg-primary-container text-on-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-tighter">純素可食</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Menu Item 4 -->
+                <div class="flex flex-col md:flex-row gap-6 group">
+                    <div
+                        class="relative w-full md:w-32 h-40 md:h-32 flex-shrink-0 overflow-hidden rounded-xl border border-outline-variant/30">
+                        <img alt="宇治手作抹茶拿鐵"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-90"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXMvbT9gjftJAW4OJfTUHQi9rGUnPxe6hcAkHcAlnyGnuBWaSqewtdnR93MnrhD3Sbwm0T4gZ1fKrr4EaPD6dAi43PwngJuKQr0EtB3PyDXjcOAvWaiGousdmw9cMswWMqt37-Ev4s_lre0Bwqqqs65-uWRanFnaC_cmJK3I2hswabljfsfkMom_PGG7RT6KRONkI1z03Yxd5x5j9l1DRJKPUqwDZh8v4iF_KbyaSFwF9p89Dt8KgPBHxRaTpkep0UJLzP0SohLS0" />
+                        <div
+                            class="absolute inset-0 bg-[#1a1a1a]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px] z-20">
+                            <span
+                                class="text-[#b8860b] font-label-md text-xs tracking-widest uppercase shadow-sm">探索風味</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="font-headline-md text-xl text-on-primary">典藏宇治抹茶</h3>
+                            <div class="dotted-leader mx-4 hidden sm:block"></div>
+                            <span class="font-label-md text-on-primary">$190</span>
+                        </div>
+                        <p class="font-body-md text-on-surface-variant italic">選用宇治一番茶等級抹茶粉，透過精準手法刷動，呈現甘醇與鮮美風味的完美平衡。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Map Section -->
+    <section class="py-section-gap bg-background">
+        <div class="container mx-auto px-margin">
+            <div class="text-center mb-16">
+                <h2 class="font-headline-lg text-headline-lg text-on-primary">誠摯邀您蒞臨</h2>
+                <div class="w-24 h-px bg-outline-variant mx-auto mt-6"></div>
+            </div>
+            <div
+                class="max-w-4xl mx-auto border border-outline-variant/40 p-3 bg-surface-container/10 backdrop-blur-md rounded-[20px] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] transform hover:-translate-y-2 hover:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-700 overflow-hidden relative group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-tr from-primary-container/20 to-transparent pointer-events-none z-10 transition-opacity duration-700 opacity-0 group-hover:opacity-100">
+                </div>
+                <div
+                    class="min-h-[300px] h-64 md:h-auto md:aspect-video w-full map-container rounded-[16px] overflow-hidden relative z-0">
+                    <iframe allowfullscreen="" data-location="Taipei City" height="100%" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7331525791225!2d121.52622957604473!3d25.04313273792621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9705a6106c5%3A0x6b77242c7009403d!2zMTAw5Y-w5YyX5biC5Lit5q2j5Y2A5b-g5a2d5p2x6Lev5LqM5q61MjfomZ8!5e0!3m2!1szh-TW!2stw!4v1715682000000!5m2!1szh-TW!2stw"
+                        style="border:0;" width="100%">
+                    </iframe>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <p class="font-body-lg text-on-primary font-medium">週二 — 週日</p>
+                <p class="font-body-md text-on-surface-variant">08:00 AM — 07:00 PM</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full py-16 bg-surface-container-lowest border-t border-outline-variant/30">
+        <div class="flex flex-col items-center gap-8 px-6 max-w-7xl mx-auto">
+            <div class="font-serif text-xl text-on-primary">第三空間 The Third Space</div>
+            <div class="flex flex-col items-center text-center gap-2">
+                <p class="font-body-md text-on-surface-variant">100 台北市中正區忠孝東路二段27號</p>
+                <p class="font-body-md text-on-surface-variant">+886 2 2322 2352</p>
+            </div>
+            <div class="flex gap-8">
+                <a class="text-on-surface-variant hover:text-on-primary transition-colors" href="#">
+                    <span class="material-symbols-outlined" data-icon="brand_instagram">brand_family</span>
+                </a>
+                <a class="text-on-surface-variant hover:text-on-primary transition-colors" href="#">
+                    <span class="material-symbols-outlined" data-icon="coffee_maker">coffee_maker</span>
+                </a>
+                <a class="text-on-surface-variant hover:text-on-primary transition-colors" href="#">
+                    <span class="material-symbols-outlined" data-icon="alternate_email">alternate_email</span>
+                </a>
+            </div>
+            <div class="font-serif text-xs uppercase tracking-widest text-center text-outline">
+                © 2024 第三空間精品咖啡 The Third Space Specialty Coffee. 匠心工藝，卓越之選。
+            </div>
+            <div class="flex gap-6 mt-4">
+                <a class="font-serif text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-primary underline underline-offset-4"
+                    href="#">Instagram</a>
+                <a class="font-serif text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-primary underline underline-offset-4"
+                    href="#">品牌誌</a>
+                <a class="font-serif text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-primary underline underline-offset-4"
+                    href="#">永續發展</a>
+                <a class="font-serif text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-primary underline underline-offset-4"
+                    href="#">加入我們</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-up-scroll');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section').forEach(section => {
+                if (!section.classList.contains('min-h-screen')) {
+                    section.classList.add('opacity-0', 'translate-y-12', 'transition-all', 'duration-[1200ms]', 'ease-out');
+                    observer.observe(section);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
